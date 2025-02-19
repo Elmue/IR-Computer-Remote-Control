@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <title>Infrared Remote Control for the Computer</title>
+    <meta name="description" content="Use any infrared remote control to control the MP3 player on the computer">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta http-equiv="MSThemeCompatible" content="Yes">
+    <meta http-equiv="Language" content="en">
+    <meta name="Author" content="ElmüSoft">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow"></head>
+    <style>
+    body          { font-family:Verdana; font-size:13px; background-color:#F9F8F1; }
+    h1            { font-size:25px; font-weight:bold; background-color:#007799; color:white; padding:8px 8px 8px 16px; margin-top:35px; border:solid 2px #77CCDD; border-radius: 10px; }
+    h2            { font-size:20px; font-weight:bold; background-color:#007799; color:white; padding:5px 3px 5px 8px; margin-top:10px; border:solid 1px #77CCDD; border-radius: 10px; }
+    h3            { font-size:17px; font-weight:bold; text-decoration:underline; color:#007799; margin-top:22px; margin-bottom:5px; }
+    h4            { font-size:13px; font-weight:bold; text-decoration:underline; color:#007799; margin-top:12px; margin-bottom:2px; }    
+    hr            { border: 3px solid #007799; border-radius: 5px; }
+    li            { padding-top:1px; padding-bottom:1px;}
+    code          { color:blue; }
+    a:hover       { color: #AA00FF; }
+    pre           { border:1px solid #AAAAAA; padding:2px; font-family:Courier New; font-size:12px; background-color:#FFFFDD; width:690px; }
+    .Pre          { border:1px solid #AAAAAA; padding:2px; font-family:Courier New; font-size:12px; background-color:white; }
+    .Link:hover   { color: #AA00FF; }
+    .Link, a      { color: blue; cursor:pointer; font-family:Verdana; font-size:12px; font-weight:bold; text-decoration:none; }
+    .DivFullSize  { position:absolute; visibility:hidden; background-color:#DDDDDD; padding:0px 10px 10px 10px; border:1px solid black; box-shadow: 5px 5px 5px #777; }
+    .Warning      { border:2px solid red; padding:5px; font-weight:bold; }
+    .Error        { color:red; font-weight:bold; }
+    .TblImage     { border:1px solid #CCCCCC; border-spacing: 0px; margin-top:15px; margin-bottom:15px; }
+    .TblImage td  { padding:0px; }
+    .TblImage th  { background-color:#777777; color:#FFFFFF; padding:1px 5px 2px 5px; font-weight:bold; }
+    .NoTopMargin  { margin-top:0px; }
+    .Highlight    { background-color:#FFFFAA; }
+    .Center       { text-align:center; }
+    .Right        { text-align:right; }
+    .Green        { color:green; }
+    .Red          { color:red; }
+    .Orange       { color:orange; }
+    .DarkRed      { color:#AA0000; }
+    .Blue         { color:blue; }
+    .Magenta      { color:magenta; }
+    .Gray         { color:#888888; }
+    .Time         { color:#775533; }
+    .Big          { font-size:15px; font-weight:bold; }
+    .Img          { border:1px solid #CCCCCC; }
+    .LineTop      { border-top:1px solid #CCCCCC; }
+    .LineBot      { border-bottom:1px solid #CCCCCC; }
+    .Translate    { background-color: #007799; border:2px solid #77CCDD; border-radius: 10px; }
+    .Translate td { color:white; padding:10px; }
+    .Assembler    { border:1px solid gray; padding:5px; }
+    .Assembler b  { color:blue; }
+    .Assembler code  { color:#DD8800; }
+    .Over         { text-decoration:overline; }
+    .OrangeSquare { background-color:#FFCC99; font-weight:bold; border-width:1px; border-style:solid; border-color:black; padding:1px; line-height:22px; }
+
+    .DataTable    { background-color:#333333; margin-top:10px; margin-bottom:10px; }
+    .DataTable th { background-color:#777777; color:#FFFFFF; padding:1px 5px 2px 5px; font-weight:bold; }
+    .DataTable tr { background-color:#F8F8F8; }
+    .DataTable td { background-color:#FFFFF8; padding:3px; }
+    .DataTable h3 { font-size:17px; font-weight:bold; text-decoration:underline; color:#007799; margin-top:8px; margin-bottom:0px; }
+
+    .PopupMenu { position:fixed; top:0px; right:0px; border:2px solid #77CCDD; z-index: 999; padding:5px; background-color:#007799; color:white; font-weight:bold; font-family:Arial,Helvetica,Sans-serif; font-size:13px; cursor:default; }
+    .MenuLink { color:white; text-decoration:none; }
+    .MenuLink:hover { color:#CCCCFF; }
+    </style>
+</head>
+<body>
+    
+<h1>Remote Control a Computer with Infrared</h1>
+  
+
+<p>
+This project allows to remote control any computer with 
+    any infrared remote control that you already have. <br>
+    The idea is to control your music or video player on the computer from 
+    your couch.<br>
+  I have seen serveral projects for this purpose in internet but none of them 
+    satisfied me.<br>
+  </p>
+  
+  
+  <h3>Features</h3>
+  <ul>
+    <li> This project is very easy to build. Perfect also for absolute beginners 
+    <li>It works with any operating system: Windows, Linux, Macintosh,... 
+    <li>Ultra simple hardware. You have to solder only 3 wires 
+    <li>The hardware is extremely tiny (3,6 cm x 1,8 cm)<br>
+    <li>Very cheap: the total hardware cost is US $21 
+    <li>You don't have to install any additional software on the computer 
+    <li>Works with ANY remote control no matter what type of signal it sends 
+    <li>No need to program a special decoder for each type of remote signal 
+    <li>Auto detection of the infrared data speed (&quot;bitrate&quot;) 
+    <li>Sends keystrokes to the computer by simulating a USB keyboard 
+    <li>Sends debug output to the computer via virtual serial port (CDC) that 
+      shows the IR signals in real time 
+    <li>Very sensitive receiver. Receives the IR signal from several meters distance 
+      even if it must be reflected twice over the walls 
+    <li>In a few minutes you have adapted the source code to your needs (assigning 
+      keystrokes to remote control buttons) 
+  </ul>
+  
+  <h3>Requirements</h3>
+  <ul>
+    <li> You need a music player or video player that can be controled with keystrokes 
+      from the keyboard. 
+    <li>The player program must be in the foreground (active window) otherwise 
+      it will not receive the keystrokes. 
+  </ul>
+  
+  
+  <h3>My Purpose</h3>
+  <p>I want to control my music player on the computer. I use MusicMatch. The 
+    program is quite old already but much better than WinAmp or Windows Media 
+    Player. The most important functionality of the program can be controled via 
+    keyboard: Play, Pause, Stop, Next Track, Previous Track. This is all I need.</p>
+  <p><img src="Images/Musicmatch.png" width="420" height="396" alt="MusicMatch JukeBox"></p>
+  <p>My amplifier has this remote control: <br>
+    <img src="Images/Yamaha.png" width="491" height="254" alt="Yamaha remote control"> 
+    <br>
+    The buttons that I marked in red have no function when listening to music 
+    from the computer.<br>
+    They are for the tuner and for other purposes.<br>
+    When I press one of these buttons the amplifier does not do anything. <br>
+    So my idea was to reuse these buttons to control the computer.</p>
+  
+  
+  <h1>The Hardware</h1>
+  <p>Only two parts are required: An infrared receiver chip and a Teensy 3.2 or Teensy 4.0. 
+    <br>
+    The +5V power for the IR receiver comes from the USB cable. 
+  <p><img src="Images/Circuit.png" class="Img" width="663" height="373" alt="infrared remote control for the computer"></p>
+  <p>The 3 wires are easy to solder even for a beginner.</p>
+  <p><img src="Images/Teensy_Receiver.jpg" width="506" height="498" alt="infrared remote control for the computer"></p>
+  <p>The IR receiver TSOP38238 is very sensitive. It has a 38 kHz bandpass to 
+    filter the signal from the remote control.<br>
+    This filter is required to eliminate noise because fluorescent lamps emit 
+    a very &quot;dirty&quot; light. <br>
+    If you use a fluorescent lamp in your living room you may get a worse sensitivity 
+    for the remote control.<br>
+    The majority of remote controls uses a 38 kHz carrier frequency. Some use 
+    36 kHz which will also work. (See datasheet in the Zip file)<br>
+    Only few companies (like Bang &amp; Olufsen) use a completely different frequency.<br>
+    In this case you need either another receiver chip or another remote control.</p>
+  <p>You can buy this IR receiver (or a similar model) in several online shops:</p>
+  <ul>
+    <li><a href="https://www.adafruit.com/product/157" target="_blank">Adafruit</a> 
+      (US $1,95) 
+    <li><a href="https://www.digikey.com/products/en/sensors-transducers/optical-sensors-photo-detectors-remote-receiver/541?k=infrared" target="_blank">Digikey</a> 
+      (US $1,30) 
+    <li><a href="http://www.newark.com/c/optoelectronics-displays/infrared-products/infrared-receivers" target="_blank">Newark</a> 
+      (US $1,08) 
+    <li><a href="https://www.tme.eu/en/katalog/photodetectors_100140/" target="_blank">TME</a> 
+      (US $0,55) 
+  </ul>
+  <p>Also the Teensy (US $20) can be bought from Adafruit and from Digikey. Or 
+    you buy it directly from <a href="https://www.pjrc.com/store/teensy32.html" target="_blank">PJRC</a>.</p>
+  <p>The <b>Teensy</b> is a very versatile and very fast board with a lot 
+    of memory.<br>
+    In contrary to the <b>Arduino</b> boards the Teensy comes with a better software 
+    library (TeensyDuino) that easily allows to simulate USB devices (keyboard, 
+    mouse, joystick and more). Additionally the Teensy is much smaller (3,6 cm 
+    x 1,8 cm) and cheaper (US $20) than Arduino boards.</p>
+  <p><img src="Images/Teensy_3.2.png" class="Img" width="384" height="446" alt="Teensy pin layout"></p>
+  
+  
+  <h3>Remote Controls</h3>
+  <p>Here you see some remote controls that I used for testing:</p>
+  <p><img src="Images/Remote_Controls.jpg" width="600" height="690" alt="infrared remote controls"></p>
+  <p>They are from a Yamaha amplifier, a Grundig amplifier (from the 1990's which 
+    still works!) and from a LG TV. In the middle below is a remote control from 
+    a <nobr><a href="https://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.Xled%2Bstripe%2Bremote%2Bcontrol.TRS0&_nkw=led%2Bstripe%2Bremote%2Bcontrol&_sacat=0" target="_blank">RGB 
+    LED strip</a></nobr> that allows to chose the color. Any of them can control 
+    the computer without the need to adapt my source code although they send completely 
+    different signals.</p>
+    
+    
+    
+  <h1>The IR signal</h1>
+  <p>The infrared signals from Yamaha, LG, NEC and the LED control look like this:</p>
+  <p><img src="Images/IR_Command.png" width="563" height="97" alt="infrared remote control code"></p>
+  <p>This is measured at the output of the IR receiver chip. When there is no 
+    IR signal the output is high. When a carrier frequency of 38 kHz is deteced 
+    the output goes low. Or with other words: Each low phase in the above signal 
+    corresponds to a burst of 38 kHz modulated light. The shortest low phase in 
+    the signal is approx 550 &micro;s for all the above remote controls. The entire 
+    signal consists of 67 high / low transitions. At the begining there is a longer 
+    start phase that gives the receiving microprocessor in the TV or Hifi device 
+    enough time to prepare for receiving the IR signal. The numbers below (in 
+    white) indicate the length of the low or high phase. A &quot;1&quot; means 
+    550 &micro;s. A &quot;3&quot; means 3 x 550 &micro;s = 1650 &micro;s. My source 
+    code detects automatically the &quot;bitrate&quot; of the IR signal.</p>
+  <p>The above signal encodes a button that has been pressed on the remote control. 
+    Each button generates another signal. But if you press a button for a longer 
+    time (e.g. to increase the volume) the remote control sends a &quot;repeater 
+    sequence&quot; which is always the same:</p>
+  <p><img src="Images/IR_Repeater.png" width="563" height="97" alt="infrared remote control repeater"></p>
+  <p>So if you press for example the &quot;Volume Up&quot; button, the signal 
+    in the first image is sent once and then the signal in the second image is 
+    repeated as long as you hold the button down.</p>
+    
+  <p>
+  <div>If you have an oscilloscope that can connect to a computer over USB, you can use my open source
+  software <a href="https://netcult.ch/elmue/Oszi-Waveform-Analyzer" target="_blank">Oszi Waveform Analyzer</a>
+  that  converts your oscilloscope into a logic analyzer.
+  After A/D conversion of the analog inputs the built in Infrared decoder shows the lengths of the bits.</div>
+    
+    
+    
+  <h3>A universal detection for any remote signal</h3>
+  <p>I have seen on <a href="https://github.com/z3t0/Arduino-IRremote" target="_blank">Github</a> 
+    and in the Teensyduino library very long code to decode IR signals. For each 
+    and every type of remote signal an individual decoder has been written: for 
+    Aiwa, Denon, JVC, LG, Lego, Mitsubishi, NEC, Panasonic, RC5, RC6, Samsung, 
+    Sanyo, Sharp, Sony, Whynter. Huge libraries with thousand lines of code. And 
+    which of them corresponds to Yamaha? And what if my model is not implemented? 
+    Grundig is missing for example. This is surely not a universal solution.<br>
+    <br>
+    I also found a Linux project that requires hundreds of config files. For each 
+    and every remote control an individual config file must be written. This is 
+    surely not my project.</p>
+  <p>There are also hardware projects in internet that use a much more complicated 
+    and more expensive hardware. I found a project that even uses a microprocessor 
+    that cannot be programmed via USB cable as the Teensy / Arduino boards. You 
+    have to buy an extra hardware programmer to upload the firmware. An absolute 
+    no-go for me!</p>
+  <p>I was searching for the simplest solution that does not depend on the type 
+    of remote signal. And I found one: I simply don't care about the <b>meaning</b> 
+    of each of the bits in the signal. In the 
+    first step I detect the average of the length of the short pulses (for the 
+    great majority of controls this is between 400&micro;s and 700&micro;s). Some 
+    remote controls use a different interval for Lo and Hi pulses. For example 
+    400&micro;s for Hi and 600&micro;s for Low. Therefore my code calculates them 
+    separately.Then I calculate the multipliers. 
+    For the signal in the image above I get: 16,8,1,1,1,3,1,1,1,3,1,3,1,3,..... 
+    I don't have to understand what they mean. I just have to recognize them when 
+    they come in. Then I convert the signal into a character string and calculate 
+    a CRC 32 from that string. For each button on the remote control I get a different 
+    8-digit hexadecimal value. My &quot;decoder&quot; needs less than 50 lines 
+    of C code for that.</p>
+  <p>When the signal is low I use lower-case characters and when it is high I 
+    use upper-case characters. <br>
+    For example a &quot;1&quot; becomes &quot;A&quot; or &quot;a&quot;. And a 
+    &quot;3&quot; becomes &quot;C&quot; or &quot;c&quot;, etc... <br>
+    But the two long pulses in the start phase (9 ms and 4.5 ms) are an exception. 
+    They are not an exact integer multiple of a short pulse. 
+    Therfore the first long pulse may be detected one time as 16 and another time 
+    as 15 times the length of a short pulse. 
+    For that reason I replace long pulses with an &quot;X&quot; or &quot;x&quot; 
+    as their exact length is not interesting.</p>
+    
+    
+  <h3>The Yamaha code</h3>
+  <table cellspacing=0 cellpadding=0>
+    <tr>
+      <td> 
+        <pre>Lo:  9000 us       --> Len: 15 --> Char: 'x'
+Hi:  4473 us       --> Len:  8 --> Char: 'X'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:   537 us short --> Len:  1 --> Char: 'A'
+Lo:   613 us short --> Len:  1 --> Char: 'a'
+Hi:  1633 us       --> Len:  3 --> Char: 'C'
+Lo:   579 us short --> Len:  1 --> Char: 'a'
+Hi:   541 us short --> Len:  1 --> Char: 'A'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:  1657 us       --> Len:  3 --> Char: 'C'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:  1662 us       --> Len:  3 --> Char: 'C'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:  1659 us       --> Len:  3 --> Char: 'C'
+Lo:   584 us short --> Len:  1 --> Char: 'a'
+Hi:  1659 us       --> Len:  3 --> Char: 'C'
+Lo:   583 us short --> Len:  1 --> Char: 'a'
+Hi:   537 us short --> Len:  1 --> Char: 'A'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:  1662 us       --> Len:  3 --> Char: 'C'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:   539 us short --> Len:  1 --> Char: 'A'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:  1660 us       --> Len:  3 --> Char: 'C'
+Lo:   579 us short --> Len:  1 --> Char: 'a'
+Hi:   541 us short --> Len:  1 --> Char: 'A'
+Lo:   584 us short --> Len:  1 --> Char: 'a'
+Hi:   536 us short --> Len:  1 --> Char: 'A'
+Lo:   583 us short --> Len:  1 --> Char: 'a'
+Hi:   537 us short --> Len:  1 --> Char: 'A'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:   535 us short --> Len:  1 --> Char: 'A'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:  1658 us       --> Len:  3 --> Char: 'C'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:   535 us short --> Len:  1 --> Char: 'A'
+Lo:   586 us short --> Len:  1 --> Char: 'a'
+Hi:  1659 us       --> Len:  3 --> Char: 'C'
+Lo:   609 us short --> Len:  1 --> Char: 'a'
+Hi:   510 us short --> Len:  1 --> Char: 'A'
+Lo:   584 us short --> Len:  1 --> Char: 'a'
+Hi:  1659 us       --> Len:  3 --> Char: 'C'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:  1636 us       --> Len:  3 --> Char: 'C'
+Lo:   606 us short --> Len:  1 --> Char: 'a'
+Hi:   539 us short --> Len:  1 --> Char: 'A'
+Lo:   586 us short --> Len:  1 --> Char: 'a'
+Hi:   532 us short --> Len:  1 --> Char: 'A'
+Lo:   588 us short --> Len:  1 --> Char: 'a'
+Hi:   537 us short --> Len:  1 --> Char: 'A'
+Lo:   583 us short --> Len:  1 --> Char: 'a'
+Hi:  1637 us       --> Len:  3 --> Char: 'C'
+Lo:   632 us short --> Len:  1 --> Char: 'a'
+Hi:   486 us short --> Len:  1 --> Char: 'A'
+Lo:   607 us short --> Len:  1 --> Char: 'a'
+Hi:  1662 us       --> Len:  3 --> Char: 'C'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:   539 us short --> Len:  1 --> Char: 'A'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Hi:   541 us short --> Len:  1 --> Char: 'A'
+Lo:   583 us short --> Len:  1 --> Char: 'a'
+Hi:  1655 us       --> Len:  3 --> Char: 'C'
+Lo:   584 us short --> Len:  1 --> Char: 'a'
+Hi:  1659 us       --> Len:  3 --> Char: 'C'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Hi:  1657 us       --> Len:  3 --> Char: 'C'
+Lo:   585 us short --> Len:  1 --> Char: 'a'
+Lo: Shortest:  579 us, Limit:  868 us, Average over 33 short intervals:  587 us
+Hi: Shortest:  486 us, Limit:  729 us, Average over 16 short intervals:  532 us
+Decoded: xXaAaCaAaCaCaCaCaAaCaAaCaAaAaAaAaCaAaCaAaCaCaAaAaAaCaAaCaAaAaCaCaCa
+CRC:     0x1856440C
+Button:  Volume Up
+--------------------------
+
+<font color="#0000FF">Lo:  9025 us       --> Len: 16 --> Char: 'x'
+Hi:  2210 us short --> Len:  4 --> Char: 'D'
+Lo:   581 us short --> Len:  1 --> Char: 'a'
+Lo: Shortest:  581 us, Limit:  871 us, Average over  1 short intervals:  581 us
+Decoded: xDa
+CRC:     0xF4FCC4CA
+Button:  Volume Up
+--------------------------</font>
+</pre>
+      </td>
+    </tr>
+  </table>
+  <p>This is the debug output that is sent to the virtual serial COM port on the 
+    computer. You see this output for example in the &quot;Serial Monitor&quot; 
+    of the Arduino compiler. You see exactly what has been received and how it 
+    has been processed by the Teensy. At the end the CRC is printed which identifies 
+    the button on the remote control or the repeater sequence (marked in blue).</p>
+  <p>My code also takes care of the &quot;repeater sequence&quot;. The repeater 
+    is always sent while you hold any button down on the remote control. It makes 
+    sense for buttons like Volume Up/Down to repeat a keystroke to the computer 
+    while the button is pressed. But it does not make sense for a button like 
+    &quot;Pause&quot;. If you would repeat the &quot;Pause&quot; command, the 
+    audio/video player would permanently switch between Play and Pause while you 
+    press the button. Some remote controls do not use a repeater sequence at all. 
+    Therefore my code has a flag that you must only set for commands to be repeated.</p>
+  <p><b>NOTE:</b> It is an error to regulate the volume on the computer. You should 
+    always let the volume on the computer at 100% and regulate the volume only 
+    at your amplifier.</p>
+
+
+  <h3>The Grundig code</h3>
+  <table cellspacing=0 cellpadding=0>
+    <tr>
+      <td> 
+        <pre>Decoded: aXaAaAaAaAaAaAaAaAaAa
+Decoded: aXaAaBbAaAaAaAaAaAa
+Decoded: aXaAaBbAaAaAaAaAaAa
+Decoded: aXaAaBbAaAaAaAaAaAa
+Decoded: aXaAaAaAaAaAaAaAaAaAa
+</pre>
+      </td>
+    </tr>
+  </table>
+</div>
+It is completely different:
+<ul>
+  <li> It uses a relation of 1:2 between short an long pulses rather than 1:3 
+    as the Yamaha. (&quot;b&quot; and &quot;B&quot; instead of &quot;c&quot; and 
+    &quot;C&quot;)
+  <li>The packages are much shorter.
+  <li>Instead of sending a repeater sequence the command itself is repeated while 
+    holding a button down. 
+  <li>Before and after the command a sequece is sent which is always the same: 
+    0101010101010101010
+</ul>
+<p>But all these differences between the remote controls do not matter. My code 
+  works with any remote control. </p>
+  
+  
+<h1>Controling the computer</h1>
+<p>For the MusicMatch player the following keystrokes have to be sent:</p>
+<ul>
+  <li>Play button on remote control sends CTRL + P to the computer</li>
+  <li>Stop button on remote control sends CTRL + S to the computer</li>
+  <li>Pause button on remote control sends key Pause to the computer</li>
+  <li>Tuning down button on remote control sends ALT + Left Arrow to the computer 
+    (previous track)</li>
+  <li>Tuning up button on remote control sends ALT + Right Arrow to the computer 
+    (next track)</li>
+</ul>
+<p>You must only adapt the function <code>ExecuteAction()</code> to your needs. 
+  You get the CRC code for each button from the debug output and just copy and 
+  paste it into the source code. The function <code>PressKey()</code> then sends 
+  a keystroke to the computer via USB keyboard which is simulated by the Teensy.</p>
+<table cellspacing=0 cellpadding=0><tr><td>
+  <table cellspacing=0 cellpadding=0>
+    <tr>
+      <td><pre>void ExecuteAction(uint32_t u32_CRC)
+{
+    .....
+
+    switch (u32_CRC)
+    {
+       case 0xA9EBE518:
+          Serial.println("Button:  Tuning Up");      
+          PressKey(MODIFIERKEY_ALT,  KEY_RIGHT, 0);  // Next Track
+          break;
+       case 0x168ECD6E:
+          Serial.println("Button:  Tuning Down");  
+          PressKey(MODIFIERKEY_ALT,  KEY_LEFT,  0);  // Previous Track  
+          break;
+       case 0x8F21CFD3:
+          Serial.println("Button:  Play");    
+          PressKey(MODIFIERKEY_CTRL, KEY_P, 0);      // Play
+          break;
+       case 0x3044E7A5:
+          Serial.println("Button:  Stop");           
+          PressKey(MODIFIERKEY_CTRL, KEY_S, 0);      // Stop
+          break;
+       case 0x57041AEF:
+          Serial.println("Button:  Pause");          
+          PressKey(0, KEY_PAUSE, 0);                 // Pause
+          break;
+
+       .....
+    }
+    ......
+}
+</pre></td></tr></table>
+
+
+
+<h3>Special Case: RC5</h3>
+
+<p>There are remote controls that send a toggle bit. A typical example is the 
+  RC5 code which has been developed by Philips:</p>
+<p><img src="Images/RC5.png" width="685" height="187" alt="RC5 remote control code"></p>
+<p>This means that each time you press the same button on the remote control this 
+  bit is toggled. So you get <b>two</b> CRC codes for one button: One with the 
+  toggle bit = high and one with the toggle bit = low. In this case your code 
+  must look like this:</p>
+<table cellspacing=0 cellpadding=0><tr><td>
+      <pre>
+switch (u32_CRC)
+{
+   case 0xA9EBE518: // Toggle bit = 1
+   case 0x4F78A03C: // Toggle bit = 0
+      Serial.println("Button:  Tuning Up");      
+      PressKey(MODIFIERKEY_ALT,  KEY_RIGHT, 0);  // Next Track
+      break;
+   .....
+}
+</pre>
+</td></tr></table>
+<h1>Programming</h1>
+  <p>To program the Teensy&#39;s processor you need a micro USB cable and you 
+    have to install:</p>
+  <ol>
+    <li>The Arduino compiler. (<a href="https://www.arduino.cc/en/Main/Software" target="_blank">Download</a>)</li>
+    <li>The TeensyDuino library (<a href="https://www.pjrc.com/teensy/td_download.html" target="_blank">Download</a>)<br />
+    </li>
+  </ol>
+  
+<p>You have to configure the compiler like the red settings in this screenshot:</p>
+  
+<p><img src="Images/Compiler_Config.png" width="461" height="268" alt="Arduino Compiler Configuration"></p>
+  
+<p>With the option &quot;<b>Serial + Keyboard + Mouse + Joystick</b>&quot; the 
+  Teensy simulates a USB HID keyboard, a HID mouse and a HID joystick. Only the 
+  keyboard is used here. And &quot;Serial&quot; is the virtual COM port that will 
+  appear on your computer where you receive the debug output.</p>
+  
+<p>You can read the debug output with the freeware <a href="https://en.osdn.jp/projects/ttssh2/releases/" target="_blank"><b>TeraTerm</b></a> 
+  or with the &quot;Serial Monitor&quot; in the Arduino compiler.<br>
+  </p>
+  
+<p><b>ATTENTION:</b> Windows may be extremely slow when you connect the Teensy's 
+  USB cable. There are 4 USB devices simulated at once by the Teensy and Windows 
+  may take up to 10 seconds until you can access the serial port. Additionally 
+  there is a bug in the Serial Monitor of the Arduino compiler which may result 
+  in the COM port never appearing. To avoid this problem you must <b>close</b> 
+  the Serial Monitor each time before you upload firmware to the Teensy.</p>
+
+
+<h3>Troubleshooting</h3>
+<p>If it does not work check the following steps:
+<ol>
+  <li>When the USB cable is plugged into the Teensy the LED on the Teensy board 
+    must flash <b>once</b>. If it does not, you probably did not upload the firmware 
+    correctly. Unpack the Zip file and double click the file &quot;IR_Receiver.ino&quot;. 
+    Configure the Arduino compiler as in the image above. In the compiler toolbar 
+    click the second button &quot;Upload&quot; (with the right arrow). Another 
+    window must open: the Teensy Loader. Now press the tiny button on the Teensy 
+    board. Wait until the Teensy Loader says &quot;Reboot OK&quot;.<br>
+    <br>
+  </li>
+  <li>Whenever the Teensy receives any IR signal the LED on the Teensy must flash 
+    fast in the <b>rythm of the IR signal</b>. If you press a button on the remote 
+    control and the LED stays off, check that the remote control is working and 
+    check the correct connection between IR receiver and Teensy.<br>
+    <br>
+  </li>
+  <li>When the Teensy is connected to the computer a COM port must appear. This 
+    may take up to 10 seconds. The first time you connect the Teensy this will 
+    even take longer and you must install the <b>CDC driver</b> (which is only 
+    one INF file). You find the driver in the ZIP file. You see this port in control 
+    panel under &quot;Ports&quot; displayed as &quot;Teensy USB serial&quot;. 
+    Additionally you will find under &quot;Human Interface Devices&quot; three 
+    &quot;HID Input Device&quot;. They are the keyboard, mouse and joystick which 
+    you find additionally under &quot;Keyboards&quot; and &quot;Mice and other 
+    pointing devices&quot;. If you are not sure disconnect the Teensy and these 
+    devices must disappear in control panel after a few seconds.<br>
+    <br>
+  </li>
+  <li>In menu &quot;Tools&quot; of the compiler select the Teensy COM port and 
+    open the &quot;Serial Monitor&quot;. Then press a button on the remote control. 
+    You must see the debug output that the Teensy sends. In the source code you 
+    can set PRINT_RAW_SAMPLES to true or false depending on how much debug output 
+    you want to see.</li>
+</ol>
+
+<h1>Possible Extensions</h1>
+<p>You can do much more with this project. Additionally you could connect <b>relays</b> 
+  to the Teensy to switch devices on and off or you could dim your lights with 
+  the remote control. If you connect 12V <b>LED strips</b> or LED lamps you can 
+  use a PWM output of the Teensy at 500 Hz and amplify the signal with a MOSFET 
+  transistor like BUZ71A. </p>
+<p>You can also write a program for the computer that listens on the serial COM 
+  port for the CRC codes that are sent from the Teensy and executes more complex 
+  actions (e.g. shut down the operating system, start programs, etc..) In C# this 
+  can be done with a few lines of code using <a href="https://msdn.microsoft.com/en-us/library/system.io.ports.serialport%28v=vs.110%29.aspx" target="_blank">System.IO.Ports.SerialPort</a>.</p>
+  
+  
+<h3>A simple light switch</h3>
+<p>You can extend the main light switch of your room with a bistable relay. So 
+  you can switch the light on and off either via remote control or via light switch.</p>
+<p><img src="Images/LightSwitch.png" class="Img" width="603" height="325" alt="IR remote control your light"></p>
+<p>A <b>bistable relay</b> has two coils and needs only a short pulse to switch 
+  into the other position and stays forever in this position until the other coil 
+  gets powered. You find bistable relays for example at <a href="https://www.digikey.com/product-detail/en/te-connectivity-potter-brumfield-relays/RT314A05/PB1695-ND/1427660" target="_blank">Digikey</a>. 
+  The PB1695-ND needs 80mA at 5V. It costs US $4,40 and switches 16A. The pin 
+  <b>Vin</b> of the Teensy is connected directly to the +5V of the USB cable which 
+  delivers enough current (500mA) for the relay so you don't need an extra 5V 
+  supply if the computer is running. </p>
+<p>But if you want to switch the light also if the computer is off then you need 
+  an additional 5V supply and you must cut the jumper at the bottom side of the 
+  Teensy to disconnect this 5V supply from the 5V of the USB cable.</p>
+<p><img src="Images/TeensyCutJumper.png" width="512" height="219" alt="Teensy cut jumper 5V"><br>
+</p>
+
+
+<h1>Download</h1>
+
+<form action="https://netcult.ch/elmue/Download.php" method="get" target="_blank">
+<input type="hidden" name="Program" value="IR-Computer-Remote-Control">
+<input type="hidden" name="Action"  value="Download">
+<table cellspacing=0 cellpadding=0><tr>
+	<td><b>Click here to&nbsp;</b></td>
+    <td><input type="submit" value="Download"></td>
+    <td><b>&nbsp;the latest version</b></td>
+</tr></table>
+</form>
+
+
+<div>&nbsp;</div>
+<div>&nbsp;</div>
+
+</body>
+</html>
+
